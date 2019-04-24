@@ -11,12 +11,12 @@
         "type": "generic",
         "package": "node_modules/component-web",
         "pre-config": [{
-            "set-port": 8888
+            "set-port": 80
         }],
         "post-config": [{
             "set-redirect": {
                 "destProtocol": "https",
-                "destPort": 8443,
+                "destPort": 443,
                 "destTemporary": false
             }
         }]
@@ -25,9 +25,9 @@
         "type": "generic",
         "package": "node_modules/component-web",
         "pre-config": [{
-            "set-port": 8443,
+            "set-port": 443,
             "set-https": true,
-            "set-domain": "134.209.7.250",
+            "set-domain": "magicauth.net",
             "set-body-parser": "json",
             "set-enable-session": true
         }, { // demo UI for WebAuthn
@@ -46,8 +46,8 @@
         "type": "generic",
         "package": "node_modules/component-certs-static",
         "pre-config": [{
-            "set-cert-file": "data/node_modules/component-certs-static/test/helpers/certs/cert.pem",
-            "set-key-file": "data/node_modules/component-certs-static/test/helpers/certs/key.pem"
+            "set-cert-file": "/etc/letsencrypt/live/magicauth.net/cert.pem",
+            "set-key-file": "/etc/letsencrypt/live/magicauth.net/privkey.pem"
         }]
     }, {
         "name": "fido2",
@@ -56,7 +56,7 @@
         "pre-config": [{
             "enable-dangerous-open-registration": true,
             "enable-dangerous-xmit-debug-info": true,
-            "set-service-name": "134.209.7.250"
+            "set-service-name": "magicauth.net"
         }]
     }, {
         "name": "uds",

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha",
     "start": "scm",
+    "docker:build-start:prod": "docker build -t cloud4-fido2-server-demo . && docker run -it -p 443:443 -p 80:80 -v /etc/letsencrypt:/etc/letsencrypt cloud4-fido2-server-demo",
     "docker:build:prod-canary": "docker build --target=production -t apowers313/fido2-server:prod-canary .",
     "docker:build:test-canary": "docker build --target=test -t apowers313/fido2-server:test-canary .",
     "docker:test:canary": "docker run apowers313/fido2-server:test-canary",
